@@ -5,12 +5,12 @@ export default async function Page() {
   const cookieStore = await cookies()
   const supabase = createClient(cookieStore)
 
-  const { data: todos } = await supabase.from('todos').select()
+  const { data: instruments } = await supabase.from('instruments').select()
 
   return (
 
     <ul>
-      {todos?.map((instruments) => (
+      {instruments?.map((instruments) => (
         <li key={instruments.id}>{instruments.name}</li>
       ))}
     </ul>
